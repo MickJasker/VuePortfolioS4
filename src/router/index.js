@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-import Home from '@/components/HomePage'
-import Dashboard from '@/components/DashboardPage'
+import Dashboard from '../components/DashboardPage'
+import Home from '../components/porfolioPages/HomePage'
+import Login from '../components/LoginPage'
+import Password from '../components/ForgetPass'
+import PorfolioAdmin from '../components/PortfolioManager'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -11,16 +13,22 @@ let router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/login'
+      redirect: '/'
     },
     {
       path: '/',
-      redirect: '/login'
+      name: 'Home',
+      component: Home
     },
     {
       path: '/login',
       name: 'Login',
-      component: Home
+      component: Login
+    },
+    {
+      path: '/forgetPassword',
+      name: 'Password',
+      component: Password
     },
     {
       path: '/dashboard',
@@ -29,8 +37,17 @@ let router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/portfolioManager',
+      name: 'PortfolioManager',
+      component: PorfolioAdmin,
+      meta: {
+        requiresAuth: true
+      }
     }
-  ]
+  ],
+  mode: 'history'
 })
 
 router.beforeEach((to, from, next) => {
