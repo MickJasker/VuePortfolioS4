@@ -40,7 +40,7 @@
               <img src = "https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png"/>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title>{{user}}</v-list-tile-title>
+              <v-list-tile-title transition="fade-transition">{{user}}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>

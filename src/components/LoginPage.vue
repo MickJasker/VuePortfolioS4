@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid>
+    <v-container fluid class="login">
       <v-layout column align-center>
         <h1 class = "display-1">Administratie login</h1>
         <h3 class = "subheader">Deze omgeving is alleen bedoeld voor administrators, als u terug wilt naar de homepagina
@@ -69,6 +69,9 @@
 </script>
 
 <style scoped>
+  .login {
+    padding-top: calc(50vh - (400px / 2) - 45px);
+  }
   form
   {
     width: 80vw;

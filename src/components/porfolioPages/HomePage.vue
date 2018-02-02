@@ -8,27 +8,29 @@
         </v-content>
       </v-layout>
     </v-container>
-    <v-container grid-list-xl>
-      <v-layout row align-center>
-        <v-flex>
-          <v-card>
+    <v-progress-linear transition="fade-transition" indeterminate color="secondary" v-show="loader"/>
+    <v-container grid-list-md v-show="!loader">
+      <v-layout v-bind="binding" row wrap>
+        <v-flex md4 class="" v-for="card in cards" :key="card.id">
+          <v-card >
             <v-card-media
               height = "200px"
-              src = "https://images.unsplash.com/photo-1499334844006-d49df7788949?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4dfea9b7bc57a31ea188b2de2bf8e736&auto=format&fit=crop&w=1350&q=80"/>
-            <v-card-title class = "title">Concept</v-card-title>
-            <v-card-text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, consectetur consequuntur
-                         ea ex nisi veniam voluptas.
+              :src = "card.headerImg"/>
+            <v-card-title class = "title">{{card.name}}</v-card-title>
+            <v-card-text>{{card.text}}
             </v-card-text>
             <v-card-actions>
-              <v-chip outline disabled color="gray">SCO</v-chip>
-              <v-chip outline disabled color="gray">UXU</v-chip>
+              <v-chip>
+                {{card.tags[0]}}
+              </v-chip>
               <v-spacer/>
-              <v-btn flat color = "secondary">Meer..</v-btn>
+              <router-link :to="{name: 'PortfolioItem', params: {name: card.name, id: card.id}}">
+                <v-btn flat color = "secondary">Meer..</v-btn>
+              </router-link>
+
             </v-card-actions>
           </v-card>
         </v-flex>
-
-
       </v-layout>
     </v-container>
   </v-content>
@@ -36,21 +38,59 @@
 </template>
 
 <script>
+  import firebase from 'firebase'
+  import 'firebase/firestore'
   export default {
-    name: "home-page"
+    name: "home-page",
+    data () {
+      return {
+        cards: [],
+        tags: [],
+        loader: true
+      }
+    },
+    created () {
+      firebase.firestore().collection('portfolio/SCO4/subjects').get().then(snap => {
+        snap.forEach(doc => {
+          const data = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'text': doc.data().text,
+            'headerImg': doc.data().headerImg,
+            'tags': doc.data().tags
+          }
+          this.cards.push(data)
+          this.loader = false
+        })
+      })
+    },
+    computed: {
+      binding() {
+        const binding = {}
+
+        if (this.$vuetify.breakpoint.mdAndDown) binding.column = true
+
+        return binding
+      }
+    }
+
   }
 </script>
 
 <style scoped>
   .landing
   {
-    height:           100vh;
+    height:           80vh;
     background-image: url("../../assets/landing.jpg");
     background-size:  cover;
   }
 
   .landingBlock
   {
-    padding-top: calc(50vh - (132.73px / 2) - 16px);
+    padding-top: calc(40vh - (132.73px / 2) - 16px);
+  }
+
+  .progress-linear {
+    margin: 0 !important;
   }
 </style>

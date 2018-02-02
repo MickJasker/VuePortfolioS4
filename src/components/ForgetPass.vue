@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container class="login" fluid>
     <v-layout column align-center>
       <h1 class = "display-1">Administratie login</h1>
       <h3 class = "subheader">Vul uw mail adres in waarmee u geregistreerd staat dan sturen wij u een mail om uw wachtwoord te heractiveren.</h3>
@@ -66,6 +66,9 @@
 </script>
 
 <style scoped>
+  .login {
+    padding-top: calc(50vh - (400px / 2) - 45px);
+  }
   form
   {
     width: 80vw;

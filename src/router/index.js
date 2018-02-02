@@ -4,6 +4,7 @@ import Dashboard from '../components/DashboardPage'
 import Home from '../components/porfolioPages/HomePage'
 import Login from '../components/LoginPage'
 import Password from '../components/ForgetPass'
+import PortfolioItem from '../components/porfolioPages/PortfolioItem'
 import PorfolioAdmin from '../components/PortfolioManager'
 import firebase from 'firebase'
 
@@ -19,6 +20,12 @@ let router = new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/portfolio/:name/:id',
+      name: 'PortfolioItem',
+      component: PortfolioItem,
+      props: true
     },
     {
       path: '/login',
