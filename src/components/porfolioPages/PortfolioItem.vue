@@ -7,10 +7,10 @@
     class = "primary elevation-3"
     style = "width: 100vw"
   >
-    <v-toolbar-title>
+    <v-toolbar-title class="hidden-sm-and-down">
       Concept
     </v-toolbar-title>
-    <v-spacer/>
+    <v-spacer class="hidden-sm-and-down"/>
     <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat dark>Home</v-btn>
         <v-btn flat dark>Strategie & concepting</v-btn>
