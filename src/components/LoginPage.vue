@@ -46,7 +46,7 @@
       signIn() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.pass)
           .then(e => {
-            this.$router.replace('dashboard')
+            this.$router.replace('admin/dashboard')
           })
           .catch(e => {
             this.text = e.message

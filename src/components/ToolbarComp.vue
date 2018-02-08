@@ -100,7 +100,7 @@
         })
       },
       dashboard() {
-        this.$router.replace('dashboard')
+        this.$router.replace('admin/dashboard')
       }
     },
     created() {

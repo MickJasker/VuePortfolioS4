@@ -38,7 +38,7 @@ let router = new Router({
       component: Password
     },
     {
-      path: '/dashboard',
+      path: '/admin/dashboard',
       name: 'Dashboard',
       component: Dashboard,
       meta: {
@@ -46,7 +46,7 @@ let router = new Router({
       }
     },
     {
-      path: '/portfolioManager',
+      path: '/admin/portfolioManager',
       name: 'PortfolioManager',
       component: PorfolioAdmin,
       meta: {
@@ -61,8 +61,8 @@ router.beforeEach((to, from, next) => {
   let currentUser = firebase.auth().currentUser;
   let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  if (requiresAuth && !currentUser) next('login')
-  else if (!requiresAuth && currentUser) next('dashboard')
+  if (requiresAuth && !currentUser) next('admin/login')
+  else if (!requiresAuth && currentUser) next('admin/dashboard')
   else next()
 })
 

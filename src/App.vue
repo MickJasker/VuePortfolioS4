@@ -1,14 +1,14 @@
 <template>
   <v-app>
-      <v-slide-y-transition mode = "out-in">
-        <router-view/>
-      </v-slide-y-transition>
+    <v-slide-y-transition mode="out-in">
+      <router-view/>
+    </v-slide-y-transition>
 
-    <v-footer class="elevation-1" dark :fixed = "fixed" app>
-      <span class = "grey--text lighten-2"><span class="hidden-xs-only">Fontys Hogeschool ICT & Media Design | </span>Mick Jasker &copy; 2018</span>
+    <v-footer class="elevation-1" dark :fixed="fixed" app>
+      <span class="grey--text lighten-2"><span class="hidden-xs-only">Fontys Hogeschool ICT & Media Design | </span>Mick Jasker &copy; 2018</span>
       <v-spacer/>
-      <router-link to = "/login">
-        <v-btn flat color = "grey lighten-1">
+      <router-link to="/login">
+        <v-btn flat color="grey lighten-1">
           <v-icon>build</v-icon>
           Admin login
         </v-btn>
@@ -30,14 +30,16 @@
 </script>
 
 <style>
-  .primary
-  {
+  .primary {
     background-color: #F79420 !important;
-    color:            #F79420;
+    color: #F79420;
   }
 
-  a
-  {
+  a {
     text-decoration: none;
+  }
+
+  .container {
+    max-width: 1000px !important;
   }
 </style>

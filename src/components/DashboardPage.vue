@@ -18,7 +18,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer/>
-                <router-link to = "/portfolioManager">
+                <router-link to = "/admin/portfolioManager">
                   <v-btn flat color = "secondary">Portfolio Manager</v-btn>
                 </router-link>
 
