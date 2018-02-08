@@ -147,6 +147,10 @@
     background: white;
   }
 
+  .landingBlock h1, blockquote {
+    text-align: center;
+  }
+
   .loader {
     padding-top: calc(100vh - 100px);
   }

@@ -30,7 +30,7 @@
       <div class="landing elevation-1" :style="'background-image: url(' + headerImg + ' )' "></div>
       <v-layout>
         <v-container>
-          <h1>{{name}}</h1>
+          <h1 :style="'color: ' + color">{{name}}</h1>
           <div v-html="text"/>
         </v-container>
       </v-layout>
