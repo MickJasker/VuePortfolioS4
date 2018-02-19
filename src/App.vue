@@ -39,7 +39,5 @@
     text-decoration: none;
   }
 
-  .container {
-    max-width: 1000px !important;
-  }
+
 </style>

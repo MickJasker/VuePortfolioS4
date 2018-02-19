@@ -11,10 +11,15 @@
     >
       <v-toolbar-title class = "hidden-xs-only" v-text = "user"/>
       <v-toolbar-items class = "hidden-xs-only">
+        <v-btn flat @click = "home">
+          <v-icon>home</v-icon>
+          Home
+        </v-btn>
         <v-btn flat @click = "dashboard">
           <v-icon>dashboard</v-icon>
           Dashboard
         </v-btn>
+
       </v-toolbar-items>
       <v-toolbar-items class = "hidden-sm-and-up">
         <v-btn flat @click.stop = "drawer = !drawer">
@@ -40,7 +45,7 @@
               <img src = "https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png"/>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title transition="fade-transition">{{user}}</v-list-tile-title>
+              <v-list-tile-title transition = "fade-transition">{{user}}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -100,7 +105,10 @@
         })
       },
       dashboard() {
-        this.$router.replace('admin/dashboard')
+        this.$router.replace('/admin/dashboard')
+      },
+      home() {
+        this.$router.replace('/home')
       }
     },
     created() {

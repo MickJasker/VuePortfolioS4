@@ -90,6 +90,9 @@
   .toolbar {
     width: 100vw;
   }
+  .container {
+    max-width: 1000px !important;
+  }
 
   .landing {
     height: 40vh;

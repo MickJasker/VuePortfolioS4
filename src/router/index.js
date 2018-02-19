@@ -7,6 +7,7 @@ import Password from '../components/ForgetPass'
 import PortfolioItem from '../components/porfolioPages/PortfolioItem'
 import PorfolioAdmin from '../components/PortfolioManager'
 import firebase from 'firebase'
+import Landing from '../components/landingPage'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ let router = new Router({
     },
     {
       path: '/',
+      name: 'Landig',
+      component: Landing
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home
     },
