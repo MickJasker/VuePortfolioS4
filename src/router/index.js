@@ -19,7 +19,7 @@ let router = new Router({
     },
     {
       path: '/',
-      name: 'Landig',
+      name: 'Landing',
       component: Landing
     },
     {

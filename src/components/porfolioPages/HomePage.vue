@@ -1,67 +1,101 @@
 <template>
-  <v-content>
-    <transition name="fade">
-      <v-container fluid fill-heigt align-center class="loaderCont" v-show="loader">
-        <v-progress-circular class="loader" indeterminate color="secondary" :size="100" :width="2.5"/>
-      </v-container>
-    </transition>
-    <div class="landing">
-      <v-content class="landingBlock">
-        <h1 class="display-4 white--text">Het Buro</h1>
-        <blockquote class="white--text">Mick Jasker</blockquote>
-      </v-content>
+  <div class = "page">
+    <nav class = "elevation-14">
+      <ul id = "navL">
+        <li>Media Design</li>
+        <li>Digital Publishing</li>
+      </ul>
+      <ul id = "navR">
+        <li>SCO</li>
+        <li>UXU</li>
+        <li>DEV</li>
+        <li>PTM</li>
+      </ul>
+    </nav>
+    <section class="landingContent">
+      <h1>Het Buro</h1>
+      <h2>Semester 4</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores inventore numquam tempore vel vero. Amet
+         debitis delectus doloribus ex odit perspiciatis porro quaerat quisquam voluptatibus voluptatum. Et maxime
+         temporibus voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facilis ipsum nesciunt
+         possimus quo sint voluptatum. Animi at cum eligendi eveniet, iusto libero nobis reprehenderit saepe temporibus
+         vel. Nobis, sunt!</p>
+    </section>
+
+    <div class = "content">
+      <h1>De opdracht</h1>
+      <h4>Geef vorm aan een passage uit het dagboek van Anne Frank dat jullie het meeste aanspreekt en probeer deze in
+          de
+          dagelijkse leefwereld van een kind te plaatsen.</h4>
+      <p>Van digitasLBi hebben we de opdracht gekregen om een cross media campagne op te zetten voor de Anne Frank
+         Stichting.
+         De doelgroep bestaat uit kinderen van genaturaliseerde vluchtelingen en hun klasgenootjes, het gaat hierom de
+         leeftijd van
+         10 tot 12 jaar. <br><br>
+
+         We moeten een beeld schetsen van Anne’s wereld en proberen de grenzen op te zoeken. Ook is de uitdaging om de
+         gelijkenissen op te zoeken met het leven van de doelgroep. En wat zijn de duidelijke verschillen. <br><br>
+
+         Een belangrijk punt van het project is wel: <br><br>
+
+         “Everyone has inside of him a piece of good news. The good news is that you don’t know how great you can be!
+         How much you can love! What you can accomplish! And what your potential is! “ <br><br>
+
+        <strong>- Anne Frank</strong><br><br>
+
+         De digitale middelen die we mogen gebruiken zijn vrij: mobile, oculus, cardboard, tablet, website. De campagne
+         wordt crossmediaal ingezet en dus aangevuld met andere middelen zoals video content, print, social media,
+         events, kunst, producten etc.</p>
+      <img src = "../../assets/line.svg" alt = "line" class = "line">
+      <div class = "sprint">
+        <h1>Sprint 0</h1>
+      </div>
+      <div class = "vak">
+        <h2>Strategie en concepting</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
+           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
+           labore nulla.</p>
+        <router-link to="Home">
+          <button>
+            Bekijk al het werk over SCO
+          </button>
+        </router-link>
+      </div><div class = "vak">
+        <h2>Strategie en concepting</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
+           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
+           labore nulla.</p>
+        <router-link to="Home">
+          <button>
+            Bekijk al het werk over SCO
+          </button>
+        </router-link>
+      </div><div class = "vak">
+        <h2>Strategie en concepting</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
+           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
+           labore nulla.</p>
+        <router-link to="Home">
+          <button>
+            Bekijk al het werk over SCO
+          </button>
+        </router-link>
+      </div><div class = "vak">
+        <h2>Strategie en concepting</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
+           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
+           labore nulla.</p>
+        <router-link to="Home">
+          <button>
+            Bekijk al het werk over SCO
+          </button>
+        </router-link>
+      </div>
+      <img src = "../../assets/line.svg" alt = "line" class = "line">
+      <h1 id="commingSoon">Binnekort meer</h1>
     </div>
-    <v-toolbar color="secondary">
-      <v-spacer/>
-      <v-toolbar-items>
-        <v-menu offset-y>
-          <v-btn flat dark slot="activator">
-            Sprint
-          </v-btn>
-          <v-list>
-            <v-list-tile>
-              <v-list-tile-content @click="sprint('0')">0</v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-        <v-menu offset-y>
-          <v-btn flat dark slot="activator">
-            Vak
-          </v-btn>
-          <v-list>
-            <v-list-tile>
-              <v-list-tile-content>Strategie & concepting</v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-
-      </v-toolbar-items>
-      <v-spacer/>
-    </v-toolbar>
-    <v-container grid-list-md>
-      <v-layout row wrap>
-
-        <v-flex md4 v-for="card in cards" :key="card.id">
-          <v-card>
-            <v-card-media
-              :height="media(card.headerImg)"
-              :src="card.headerImg"/>
-            <v-card-title class="title">{{card.name}}</v-card-title>
-            <v-card-actions>
-              <v-chip outline disabled>
-                {{card.tag}}
-              </v-chip>
-              <v-spacer/>
-              <router-link :to="{name: 'PortfolioItem', params: {name: card.name, id: card.id}}">
-                <v-btn flat color="secondary">Meer..</v-btn>
-              </router-link>
-
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-content>
+    <footer></footer>
+  </div>
 </template>
 
 <script>
@@ -122,45 +156,151 @@
 </script>
 
 <style scoped>
-  .landing {
-    height: 80vh;
-    background-image: url("../../assets/landing.jpg");
-    background-size: cover;
-    width: 100vw !important;
-  }
-
-  .landingBlock {
-    padding-top: calc(40vh - (132.73px / 2) - 16px);
-  }
-
-  .progress-linear {
-    margin: 0 !important;
-  }
-
-  .loaderCont {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    height: 100vh;
-    text-align: center;
-    position: fixed;
-    z-index: 1000000000;
-    background: white;
-  }
-
-  .landingBlock h1, blockquote {
-    text-align: center;
-  }
-
-  .loader {
-    padding-top: calc(100vh - 100px);
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  .page
   {
-    opacity: 0;
+    background-image:  url("../../assets/landingBG.jpg");
+    background-size:   100vw;
+    min-height:        100vh;
+    background-color:  #F5F5F5;
+    background-repeat: no-repeat;
+    text-align:        center;
+  }
+
+  h1
+  {
+    font-size:  60px;
+    margin-top: 120px;
+    color:      #0069AA;
+    text-align: left;
+  }
+
+  h2
+  {
+    font-size:   24px;
+    font-weight: 400;
+    text-align:  left;
+  }
+
+  p
+  {
+    max-width:  500px;
+    text-align: left;
+  }
+
+  nav
+  {
+    background-color: #F5F5F5;
+    border-radius:    15px;
+    height:           57px;
+    position:         fixed;
+    margin: 30px;
+    width:            calc(100% - 60px);
+    z-index: 10000;
+  }
+
+  nav ul li
+  {
+    list-style: none;
+    font-size:  18px !important;
+    display:    inline;
+    padding:    0 10px;
+  }
+
+  nav ul
+  {
+    padding: 15px;
+  }
+
+  #navL
+  {
+    text-align: left;
+    float:      left;
+  }
+
+  #navR
+  {
+    text-align: right;
+    float:      right;
+  }
+
+  .line
+  {
+    height: 250px;
+    margin: 100px;
+  }
+
+  .content
+  {
+    display: inline-block;
+    padding-top: 50vh;
+  }
+
+  .content h1, h4
+  {
+    text-align: center;
+    max-width:  800px;
+    margin:     30px;
+  }
+
+  .content p
+  {
+    width:     80vw;
+    max-width: 800px;
+  }
+
+  .sprint
+  {
+    background-image: url('../../assets/sprint0.png');
+    background-size:  contain;
+    height:           400px;
+  }
+
+  .sprint h1
+  {
+    line-height: 400px;
+  }
+
+  button
+  {
+    background-color: #F79520;
+    color:            white;
+    font-size:        24px;
+    padding:          15px;
+    border-radius:    36px;
+    margin-top: 30px;
+    margin-right:     15px;
+    transition:       0.3s ease-out;
+    text-align: left;
+  }
+
+  button:hover
+  {
+    background-color: #0069AA;
+  }
+
+  footer {
+    background-image: url("../../assets/footer.png");
+    background-size: cover;
+    height: 60vw;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  .vak {
+    margin: 50px;
+    z-index: 100;
+    position: relative;
+  }
+
+  #commingSoon {
+    position: relative;
+    z-index: 100;
+    color: #F5F5F5;
+  }
+
+  .landingContent {
+    padding: 100px;
   }
 </style>
