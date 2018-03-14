@@ -122,9 +122,9 @@
 </script>
 
 <style scoped>
-  .landing {
-    height: 80vh;
-    background-image: url("../../assets/landing.jpg");
+    .landing {
+      height: 80vh;
+      background-image: url("../../assets/landing.jpg");
     background-size: cover;
     width: 100vw !important;
   }

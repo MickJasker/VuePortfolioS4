@@ -1,5 +1,4 @@
 <template>
-
   <v-layout row wrap>
     <v-flex md6>
       <router-link to="/home">
@@ -12,10 +11,9 @@
       </router-link>
     </v-flex>
   </v-layout>
-
 </template>
 
-<script> 
+<script>
   export default {
     name: "landing-page"
   }
@@ -31,4 +29,5 @@
     line-height: 100vh !important;
     height: 100%;
   }
+
 </style>
