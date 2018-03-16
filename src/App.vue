@@ -20,7 +20,7 @@
 <style>
   body {
     font-family: 'Montserrat', 'Roboto', sans-serif !important;
-    background-color: #f5f5f5;
+    background-color: #282828;
   }
 
   .primary {
