@@ -1,11 +1,12 @@
 <template>
-  <div class = "page">
-    <nav class = "elevation-14">
-      <ul id = "navL">
+  <div class="page">
+    <nav class="elevation-10">
+      <ul id="navL">
         <li>Media Design</li>
         <li>Digital Publishing</li>
       </ul>
-      <ul id = "navR">
+      <img src="../../assets/logo.svg" alt="">
+      <ul id="navR">
         <li>SCO</li>
         <li>UXU</li>
         <li>DEV</li>
@@ -16,85 +17,79 @@
       <h1>Het Buro</h1>
       <h2>Semester 4</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores inventore numquam tempore vel vero. Amet
-         debitis delectus doloribus ex odit perspiciatis porro quaerat quisquam voluptatibus voluptatum. Et maxime
-         temporibus voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facilis ipsum nesciunt
-         possimus quo sint voluptatum. Animi at cum eligendi eveniet, iusto libero nobis reprehenderit saepe temporibus
-         vel. Nobis, sunt!</p>
+        debitis delectus doloribus ex odit perspiciatis porro quaerat quisquam voluptatibus voluptatum. Et maxime
+        temporibus voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facilis ipsum nesciunt
+        possimus quo sint voluptatum. Animi at cum eligendi eveniet, iusto libero nobis reprehenderit saepe temporibus
+        vel. Nobis, sunt!</p>
     </section>
 
-    <div class = "content">
+    <div class="content">
       <h1>De opdracht</h1>
       <h4>Geef vorm aan een passage uit het dagboek van Anne Frank dat jullie het meeste aanspreekt en probeer deze in
-          de
-          dagelijkse leefwereld van een kind te plaatsen.</h4>
+        de
+        dagelijkse leefwereld van een kind te plaatsen.</h4>
       <p>Van digitasLBi hebben we de opdracht gekregen om een cross media campagne op te zetten voor de Anne Frank
-         Stichting.
-         De doelgroep bestaat uit kinderen van genaturaliseerde vluchtelingen en hun klasgenootjes, het gaat hierom de
-         leeftijd van
-         10 tot 12 jaar. <br><br>
+        Stichting.
+        De doelgroep bestaat uit kinderen van genaturaliseerde vluchtelingen en hun klasgenootjes, het gaat hierom de
+        leeftijd van
+        10 tot 12 jaar. <br><br>
 
-         We moeten een beeld schetsen van Anne’s wereld en proberen de grenzen op te zoeken. Ook is de uitdaging om de
-         gelijkenissen op te zoeken met het leven van de doelgroep. En wat zijn de duidelijke verschillen. <br><br>
+        We moeten een beeld schetsen van Anne’s wereld en proberen de grenzen op te zoeken. Ook is de uitdaging om de
+        gelijkenissen op te zoeken met het leven van de doelgroep. En wat zijn de duidelijke verschillen. <br><br>
 
-         Een belangrijk punt van het project is wel: <br><br>
+        Een belangrijk punt van het project is wel: <br><br>
 
-         “Everyone has inside of him a piece of good news. The good news is that you don’t know how great you can be!
-         How much you can love! What you can accomplish! And what your potential is! “ <br><br>
+        “Everyone has inside of him a piece of good news. The good news is that you don’t know how great you can be!
+        How much you can love! What you can accomplish! And what your potential is! “ <br><br>
 
         <strong>- Anne Frank</strong><br><br>
 
-         De digitale middelen die we mogen gebruiken zijn vrij: mobile, oculus, cardboard, tablet, website. De campagne
-         wordt crossmediaal ingezet en dus aangevuld met andere middelen zoals video content, print, social media,
-         events, kunst, producten etc.</p>
-      <img src = "../../assets/line.svg" alt = "line" class = "line">
-      <div class = "sprint">
+        De digitale middelen die we mogen gebruiken zijn vrij: mobile, oculus, cardboard, tablet, website. De campagne
+        wordt crossmediaal ingezet en dus aangevuld met andere middelen zoals video content, print, social media,
+        events, kunst, producten etc.</p>
+      <img src="../../assets/line.svg" alt="line" class="line">
+      <div class="sprint">
         <h1>Sprint 0</h1>
       </div>
-      <div class = "vak">
+      <div class="vak">
         <h2>Strategie en concepting</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
-           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
-           labore nulla.</p>
+        <p>De eerste sprint heb ik me voornamelijk gefocust op het ontwikkelen van twee verschillende concepten. Om dit
+          voor elkaar te krijgen hebben we in vier weken tijd in verschillende stappen ondernomen. Eerst begonnen met
+          het bedenken van 250 ideeën. Hieruit heb ik samen met mijn proftaakgroep twee concepten ontwikkeld.</p>
         <router-link to="Home">
-          <button>
-            Bekijk al het werk over SCO
-          </button>
-        </router-link>
-      </div><div class = "vak">
-        <h2>Strategie en concepting</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
-           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
-           labore nulla.</p>
-        <router-link to="Home">
-          <button>
-            Bekijk al het werk over SCO
-          </button>
-        </router-link>
-      </div><div class = "vak">
-        <h2>Strategie en concepting</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
-           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
-           labore nulla.</p>
-        <router-link to="Home">
-          <button>
-            Bekijk al het werk over SCO
-          </button>
-        </router-link>
-      </div><div class = "vak">
-        <h2>Strategie en concepting</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, iste magnam minus molestias pariatur
-           voluptate. Autem cupiditate dolores, maiores quisquam sit ut! Aliquid deleniti distinctio enim harum impedit
-           labore nulla.</p>
-        <router-link to="Home">
-          <button>
+          <button class="elevation-5">
             Bekijk al het werk over SCO
           </button>
         </router-link>
       </div>
-      <img src = "../../assets/line.svg" alt = "line" class = "line">
-      <h1 id="commingSoon">Binnekort meer</h1>
+      <div class="vak">
+        <h2>User experience design</h2>
+        <p>Om ervoor te zorgen of onze verwachtingen kloppen hebben we deze sprint een onderzoek uitgevoerd op een
+          basisschool in Eindhoven</p>
+        <router-link to="Home">
+          <button class="elevation-5">
+            Bekijk al het werk over UXU
+          </button>
+        </router-link>
+      </div>
+      <div class="vak">
+        <h2>Proftaak en SCRUM</h2>
+        <p>De basis van het project valt onder proftaak. Tijdens de porftaak uren hebben we ook de basis van SCRUM en
+          AGILE behandeld.</p>
+        <router-link to="Home">
+          <button class="elevation-5">
+            Bekijk al het werk over PTM
+          </button>
+        </router-link>
+      </div>
+      <img src="../../assets/line.svg" alt="line" class="line">
+      <h1 id="commingSoon">Binnenkort meer</h1>
     </div>
-    <footer></footer>
+    <footer/>
+    <div class="footer">
+      <h6>Mick Jasker 2018</h6>
+      <router-link to="Login" id="footerLink">Admin login</router-link>
+    </div>
   </div>
 </template>
 
@@ -156,125 +151,122 @@
 </script>
 
 <style scoped>
-  .page
-  {
-    background-image:  url("../../assets/landingBG.jpg");
-    background-size:   100vw;
-    min-height:        100vh;
-    background-color:  #F5F5F5;
-    background-repeat: no-repeat;
-    text-align:        center;
-  }
-
-  h1
-  {
-    font-size:  60px;
-    margin-top: 120px;
-    color:      #0069AA;
-    text-align: left;
-  }
-
-  h2
-  {
-    font-size:   24px;
-    font-weight: 400;
-    text-align:  left;
-  }
-
-  p
-  {
-    max-width:  500px;
-    text-align: left;
-  }
-
-  nav
-  {
+  .page {
+    background-image: url("../../assets/landingBG.jpg");
+    background-size: 100vw;
+    min-height: 100vh;
     background-color: #F5F5F5;
-    border-radius:    15px;
-    height:           57px;
-    position:         fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 60px;
+    margin-top: 120px;
+    color: #0069AA;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  p {
+    max-width: 500px;
+    text-align: left;
+  }
+
+  nav {
+    background-color: #F5F5F5;
+    border-radius: 15px;
+    height: 57px;
+    position: fixed;
     margin: 30px;
-    width:            calc(100% - 60px);
+    width: calc(100% - 60px);
     z-index: 10000;
   }
 
-  nav ul li
-  {
+  nav ul li {
     list-style: none;
-    font-size:  18px !important;
-    display:    inline;
-    padding:    0 10px;
+    font-size: 18px !important;
+    display: inline;
+    padding: 0 10px;
   }
 
-  nav ul
-  {
+  nav ul {
     padding: 15px;
+    min-width: 370px;
   }
 
-  #navL
-  {
+  nav img {
+    height: 57px;
+    padding: 5px;
+    position: static;
+  }
+
+  #navL {
     text-align: left;
-    float:      left;
+    float: left;
   }
 
-  #navR
-  {
+  #navR {
     text-align: right;
-    float:      right;
+    float: right;
   }
 
-  .line
-  {
+  .line {
     height: 250px;
     margin: 100px;
   }
 
-  .content
-  {
+  .content {
     display: inline-block;
     padding-top: 50vh;
   }
 
-  .content h1, h4
-  {
+  .content h1, h4 {
     text-align: center;
-    max-width:  800px;
-    margin:     30px;
+    max-width: 800px;
+    margin: 30px;
   }
 
-  .content p
-  {
-    width:     80vw;
+  .content p {
+    width: 80vw;
     max-width: 800px;
   }
 
-  .sprint
-  {
+  .sprint {
     background-image: url('../../assets/sprint0.png');
-    background-size:  contain;
-    height:           400px;
+    background-size: contain;
+    height: 400px;
   }
 
-  .sprint h1
-  {
+  .sprint h1 {
     line-height: 400px;
   }
 
-  button
-  {
+  .content h4 {
+    text-align: left !important;
+    font-weight: 400;
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  button {
     background-color: #F79520;
-    color:            white;
-    font-size:        24px;
-    padding:          15px;
-    border-radius:    36px;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 24px;
     margin-top: 30px;
-    margin-right:     15px;
-    transition:       0.3s ease-out;
+    margin-right: 15px;
+    transition: 0.3s ease-out;
     text-align: left;
   }
 
-  button:hover
-  {
+  button:hover {
     background-color: #0069AA;
   }
 
@@ -302,5 +294,39 @@
 
   .landingContent {
     padding: 100px;
+  }
+
+  .vak h2 {
+    font-size: 36px;
+    font-weight: 900;
+    color: #0069AA;
+  }
+
+  .footer {
+    z-index: 1000;
+    position: absolute;
+    width: 100vw;
+    background: #282828;
+    text-align: center;
+    color: #f5f5f5;
+    display: inherit;
+    padding: 10px;
+  }
+
+  .footer h6 {
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.4;
+  }
+
+  .footer a {
+    opacity: 0.4;
+    color: #f5f5f5;
+    transition: 0.2s ease-out;
+  }
+
+  .footer a:hover {
+    opacity: 1;
+    color: #F79520;
   }
 </style>
