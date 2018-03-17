@@ -59,10 +59,10 @@
       <div data-aos = "zoom-out" class = "sprint">
         <h1>Sprint 0</h1>
       </div>
-      <div class = "vak" data-aos = "fade-up" v-for="data in coarseSprints">
+      <div class = "vak" data-aos = "fade-up" v-for = "data in coarseSprints">
         <h2>{{data.name}}</h2>
         <p>{{data.desc}}</p>
-        <router-link :to = "{name: 'PortfolioItem', params: {name: data.name, id: data.id}}">
+        <router-link :to = "{name: 'PortfolioItem', params: {sprint: data.sprint, id: data.id}}">
           <button class = "elevation-5">
             Bekijk al het werk over {{data.name}}
           </button>
@@ -114,23 +114,18 @@
       }
     },
     created() {
-
-      function getData(coarseURL) {
-        const dbRef = firebase.firestore().collection('portfolio/semesters/s4/'+coarseURL+'/sprints')
-        dbRef.get().then(snap => {
-          snap.forEach(doc => {
-            return {
-              'id': doc.id,
-              'name': doc.data().name,
-              'desc': doc.data().desc
-            }
-
-          })
+      const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
+      dbRef.get().then(snap => {
+        snap.forEach(doc => {
+          const data = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'desc': doc.data().desc,
+            'sprint': 'Sprint0'
+          }
+          this.coarseSprints.push(data)
         })
-      }
-      const data = getData('SCO')
-      //this.coarseSprints.push(data)
-      console.log(data)
+      })
 
     },
     computed: {}
@@ -167,52 +162,10 @@
   .landingContent p
   {
     text-align: left;
-    max-width: 500px;
+    max-width:  500px;
   }
 
-  nav
-  {
-    background-color: #F5F5F5;
-    border-radius:    15px;
-    height:           57px;
-    position:         fixed;
-    margin:           30px;
-    width:            calc(100% - 60px);
-    z-index:          10000;
-  }
 
-  nav ul li
-  {
-    list-style: none;
-    font-size:  18px !important;
-    display:    inline;
-    padding:    0 10px;
-  }
-
-  nav ul
-  {
-    padding:   15px;
-    min-width: 370px;
-  }
-
-  nav img
-  {
-    height:   57px;
-    padding:  5px;
-    position: static;
-  }
-
-  #navL
-  {
-    text-align: left;
-    float:      left;
-  }
-
-  #navR
-  {
-    text-align: right;
-    float:      right;
-  }
 
   .line
   {
@@ -224,7 +177,7 @@
   {
     display:     inline-block;
     padding-top: 50vh;
-    max-width: 800px;
+    max-width:   800px;
   }
 
   .content h1, h4
@@ -235,7 +188,7 @@
 
   .content p
   {
-    display: block;
+    display:    block;
     text-align: left;
   }
 
