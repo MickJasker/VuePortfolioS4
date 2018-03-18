@@ -1,40 +1,41 @@
 <template>
-  <div>
-    <transition name="fade">
-      <v-container fluid fill-heigt align-center class="loaderCont" v-show="loader">
-        <v-progress-circular class="loader" indeterminate color="secondary" :size="100" :width="2.5"/>
-      </v-container>
-    </transition>
-    <v-toolbar
-      app
-      flat
-      dark
-
-      class="elevation-3 toolbar"
-      :style="'width: 100vw; background-color: ' + color"
-    >
-      <v-toolbar-title class="hidden-sm-and-down">
-        {{name}}
-      </v-toolbar-title>
-      <v-spacer class="hidden-sm-and-down"/>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat dark @click="goHome">Home</v-btn>
-      </v-toolbar-items>
-      <v-toolbar-items class="hidden-md-and-up">
-        <v-btn flat dark @click="goHome">
-          <v-icon>home</v-icon>
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-    <v-content>
-      <div class="landing elevation-1" :style="'background-image: url(' + headerImg + ' )' "></div>
-      <v-layout>
-        <v-container>
-          <h1 :style="'color: ' + color">{{name}}</h1>
-          <div v-html="text"/>
-        </v-container>
-      </v-layout>
-    </v-content>
+  <div class="page">
+    <div class="loader" v-show="loader">
+      <h1>Loading content</h1>
+    </div>
+    <nav class="elevation-10">
+      <ul id="navL">
+        <li>
+          <router-link to="/Home">Media Design</router-link>
+        </li>
+        <li>Digital Publishing</li>
+      </ul>
+      <img src="../../assets/logo.svg" alt="">
+      <ul id="navR">
+        <li>SCO</li>
+        <li>UXU</li>
+        <li>DEV</li>
+        <li>PTM</li>
+      </ul>
+    </nav>
+    <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
+      <h1>{{this.name}} | sprint 0</h1>
+    </section>
+    <section class="content">
+      <h1 data-aos="fade-up">{{this.name}}</h1>
+      <p data-aos="fade-up">{{this.text}}</p>
+      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
+      <div class="assignment" v-for="item in assignment">
+        <h2 data-aos="fade-up">{{item.name}}</h2>
+        <p data-aos="fade-up">{{item.html}}</p>
+      </div>
+      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
+    </section>
+    <footer/>
+    <div class="footer">
+      <h6>Mick Jasker 2018</h6>
+      <router-link to="Login" id="footerLink">Admin login</router-link>
+    </div>
   </div>
 </template>
 
@@ -57,69 +58,126 @@
         name: '',
         headerImg: '',
         text: '',
-        color: 'rgba(247, 148, 32, 1)'
+        assignment: []
       }
     },
     created() {
-      firebase.firestore().collection('portfolio').doc('SCO4').collection('subjects').doc(this.id).get()
+      const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
+      docref.get()
         .then(doc => {
           this.name = doc.data().name
           this.headerImg = doc.data().headerImg
-          let text = doc.data().text
-          this.text = text
-          const color = "rgba(" + doc.data().color + ", 1)"
-          if (color !== undefined) {
-            this.color = color
-          } else {
-            this.color = "rgba(247, 148, 32, 1)"
-          }
+          this.text = doc.data().desc
           this.loader = false
         })
-
-    },
-    methods: {
-      goHome() {
-        this.$router.replace('/')
-      },
+      docref.collection('items').get().then((snap) => {
+        snap.forEach(doc => {
+          let html = doc.data().html
+          const data = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'html': html
+          }
+          this.assignment.push(data)
+        })
+      })
 
     }
   }
 </script>
 
 <style scoped>
-  .toolbar {
-    width: 100vw;
-  }
-  .container {
-    max-width: 1000px !important;
+  .page {
+    text-align: center;
   }
 
   .landing {
-    height: 40vh;
+    height: 80vh;
+    width: 100vw;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
   }
 
-  .loaderCont {
-    width: 100vw;
-    max-width: 100vw !important;
-    height: 100vh;
+  .landing h1 {
+    text-align: right;
+    line-height: 80vh;
+    padding-right: 100px;
+    font-size: 50px;
+    color: #F5F5F5;
+  }
+
+  h1 {
+    color: #0069AA;
+    font-size: 36px;
+  }
+
+  h2 {
+    color: #0069AA;
+    font-size: 24px;
+  }
+
+  .content {
     text-align: center;
-    position: fixed;
-    z-index: 1000000000;
-    background: white;
+    max-width: 800px;
+    display: inline-block;
+  }
+
+  .content p {
+    text-align: left;
+  }
+
+  .line {
+    height: 250px;
+    margin: 100px;
   }
 
   .loader {
-    padding-top: calc(100vh - 100px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100000;
+    background-color: #fff;
   }
 
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
+  .loader h1 {
+    line-height: 100vh;
   }
 
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-  {
-    opacity: 0;
+  footer {
+    background-image: url("../../assets/footer.png");
+    background-size: cover;
+    height: 60vw;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  .footer {
+    z-index: 1000;
+    position: absolute;
+    width: 100vw;
+    background: #282828;
+    text-align: center;
+    color: #F5F5F5;
+    display: inherit;
+    padding: 10px;
+  }
+
+  .footer h6 {
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.4;
+  }
+
+  .footer a {
+    opacity: 0.4;
+    color: #F5F5F5;
+    transition: 0.2s ease-out;
+  }
+
+  .footer a:hover {
+    opacity: 1;
+    color: #F79520;
   }
 </style>
