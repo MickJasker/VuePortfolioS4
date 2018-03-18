@@ -6,6 +6,8 @@ import router from './router'
 import Vuetify from 'vuetify'
 import './assets/main.styl'
 import firebase from 'firebase'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 let config = {
   apiKey: "AIzaSyDHcC1PXjoEkktDNfOlk0Ap4--CFdU_ib4",
@@ -15,6 +17,8 @@ let config = {
   storageBucket: "portfolio-af2cb.appspot.com",
   messagingSenderId: "661253050916"
 }
+
+AOS.init()
 
 firebase.initializeApp(config)
 

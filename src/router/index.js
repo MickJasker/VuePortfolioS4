@@ -28,7 +28,7 @@ let router = new Router({
       component: Home
     },
     {
-      path: '/portfolio/:id/:name',
+      path: '/portfolio/:sprint/:id',
       name: 'PortfolioItem',
       component: PortfolioItem,
       props: true
