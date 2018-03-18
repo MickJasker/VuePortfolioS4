@@ -55,7 +55,7 @@
                               wordt crossmediaal ingezet en dus aangevuld met andere middelen zoals video content,
                               print, social media,
                               events, kunst, producten etc.</p>
-      <img data-aos = "zoom-out" src = "../../assets/line.svg" alt = "line" class = "line">
+      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
       <div data-aos = "zoom-out" class = "sprint">
         <h1>Sprint 0</h1>
       </div>
@@ -89,7 +89,8 @@
       return {
         coarseSprints: [],
         tag: '',
-        sprintVal: null
+        sprintVal: null,
+        loader: true
       }
     },
     methods: {
