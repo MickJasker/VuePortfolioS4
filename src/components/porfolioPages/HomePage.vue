@@ -59,34 +59,12 @@
       <div data-aos = "zoom-out" class = "sprint">
         <h1>Sprint 0</h1>
       </div>
-      <div class = "vak" data-aos = "fade-up">
-        <h2>Strategie en concepting</h2>
-        <p>De eerste sprint heb ik me voornamelijk gefocust op het ontwikkelen van twee verschillende concepten. Om dit
-           voor elkaar te krijgen hebben we in vier weken tijd in verschillende stappen ondernomen. Eerst begonnen met
-           het bedenken van 250 ideeën. Hieruit heb ik samen met mijn proftaakgroep twee concepten ontwikkeld.</p>
-        <router-link to = "Home">
+      <div class = "vak" data-aos = "fade-up" v-for = "data in coarseSprints">
+        <h2>{{data.name}}</h2>
+        <p>{{data.desc}}</p>
+        <router-link :to = "{name: 'PortfolioItem', params: {sprint: data.sprint, id: data.id}}">
           <button class = "elevation-5">
-            Bekijk al het werk over SCO
-          </button>
-        </router-link>
-      </div>
-      <div class = "vak" data-aos = "fade-up">
-        <h2>User experience design</h2>
-        <p>Om ervoor te zorgen of onze verwachtingen kloppen hebben we deze sprint een onderzoek uitgevoerd op een
-           basisschool in Eindhoven</p>
-        <router-link to = "Home">
-          <button class = "elevation-5">
-            Bekijk al het werk over UXU
-          </button>
-        </router-link>
-      </div>
-      <div class = "vak" data-aos = "fade-up">
-        <h2>Proftaak en SCRUM</h2>
-        <p>De basis van het project valt onder proftaak. Tijdens de porftaak uren hebben we ook de basis van SCRUM en
-           AGILE behandeld.</p>
-        <router-link to = "Home">
-          <button class = "elevation-5">
-            Bekijk al het werk over PTM
+            Bekijk al het werk over {{data.name}}
           </button>
         </router-link>
       </div>
@@ -109,9 +87,8 @@
     name: "home-page",
     data() {
       return {
-        cards: [],
+        coarseSprints: [],
         tag: '',
-        loader: true,
         sprintVal: null
       }
     },
@@ -137,21 +114,19 @@
       }
     },
     created() {
-      const dbRef = firebase.firestore().collection('portfolio')
-      dbRef.doc('SCO4/').collection('subjects').get().then(snap => {
+      const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
+      dbRef.get().then(snap => {
         snap.forEach(doc => {
           const data = {
             'id': doc.id,
             'name': doc.data().name,
-            'text': doc.data().text,
-            'headerImg': doc.data().headerImg,
-            'tag': doc.data().tag,
-            'sprintCard': doc.data().sprint
+            'desc': doc.data().desc,
+            'sprint': 'Sprint0'
           }
-          this.cards.push(data)
-          this.loader = false
+          this.coarseSprints.push(data)
         })
       })
+
     },
     computed: {}
 
@@ -187,52 +162,10 @@
   .landingContent p
   {
     text-align: left;
-    max-width: 500px;
+    max-width:  500px;
   }
 
-  nav
-  {
-    background-color: #F5F5F5;
-    border-radius:    15px;
-    height:           57px;
-    position:         fixed;
-    margin:           30px;
-    width:            calc(100% - 60px);
-    z-index:          10000;
-  }
 
-  nav ul li
-  {
-    list-style: none;
-    font-size:  18px !important;
-    display:    inline;
-    padding:    0 10px;
-  }
-
-  nav ul
-  {
-    padding:   15px;
-    min-width: 370px;
-  }
-
-  nav img
-  {
-    height:   57px;
-    padding:  5px;
-    position: static;
-  }
-
-  #navL
-  {
-    text-align: left;
-    float:      left;
-  }
-
-  #navR
-  {
-    text-align: right;
-    float:      right;
-  }
 
   .line
   {
@@ -244,7 +177,7 @@
   {
     display:     inline-block;
     padding-top: 50vh;
-    max-width: 800px;
+    max-width:   800px;
   }
 
   .content h1, h4
@@ -255,7 +188,7 @@
 
   .content p
   {
-    display: block;
+    display:    block;
     text-align: left;
   }
 
