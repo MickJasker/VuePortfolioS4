@@ -27,7 +27,7 @@
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
       <div class="assignment" v-for="item in assignment">
         <h2 data-aos="fade-up">{{item.name}}</h2>
-        <p data-aos="fade-up">{{item.html}}</p>
+        <div data-aos="fade-up" v-html="item.html" class="html"/>
       </div>
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
@@ -73,10 +73,11 @@
       docref.collection('items').get().then((snap) => {
         snap.forEach(doc => {
           let html = doc.data().html
+          html = $.parseHTML(html)
           const data = {
             'id': doc.id,
             'name': doc.data().name,
-            'html': html
+            'html': html[0].innerHTML
           }
           this.assignment.push(data)
         })
@@ -123,7 +124,7 @@
   }
 
   .content p {
-    text-align: left;
+    text-align: left !important;
   }
 
   .line {
@@ -141,6 +142,10 @@
 
   .loader h1 {
     line-height: 100vh;
+  }
+  
+  .html p{
+    text-align: left;
   }
 
   footer {
