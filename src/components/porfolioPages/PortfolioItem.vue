@@ -133,8 +133,8 @@
     line-height: 100vh;
   }
 
-  .html p{
-    text-align: left;
+  .html {
+    text-align: left !important;
   }
 
   footer {

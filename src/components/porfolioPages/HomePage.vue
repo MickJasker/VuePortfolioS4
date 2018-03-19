@@ -1,18 +1,6 @@
 <template>
   <div class = "page">
-    <nav class = "elevation-10">
-      <ul id = "navL">
-        <li>Media Design</li>
-        <li>Digital Publishing</li>
-      </ul>
-      <img src = "../../assets/logo.svg" alt = "">
-      <ul id = "navR">
-        <li>SCO</li>
-        <li>UXU</li>
-        <li>DEV</li>
-        <li>PTM</li>
-      </ul>
-    </nav>
+    <nav-bar/>
     <section class = "landingContent">
       <h1>Het Buro</h1>
       <h2>Semester 4</h2>
@@ -82,8 +70,12 @@
 <script>
   import firebase from 'firebase'
   import 'firebase/firestore'
+  import navBar from '../navBar'
 
   export default {
+    components: {
+      navBar
+    },
     name: "home-page",
     data() {
       return {
