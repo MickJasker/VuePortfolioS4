@@ -3,21 +3,7 @@
     <div class="loader" v-show="loader">
       <h1>Loading content</h1>
     </div>
-    <nav class="elevation-10">
-      <ul id="navL">
-        <li>
-          <router-link to="/Home">Media Design</router-link>
-        </li>
-        <li>Digital Publishing</li>
-      </ul>
-      <img src="../../assets/logo.svg" alt="">
-      <ul id="navR">
-        <li>SCO</li>
-        <li>UXU</li>
-        <li>DEV</li>
-        <li>PTM</li>
-      </ul>
-    </nav>
+   <nav-bar/>
     <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
       <h1>{{this.name}} | sprint 0</h1>
     </section>
@@ -43,6 +29,7 @@
   import firebase from 'firebase'
   import 'firebase/firestore'
   import $ from 'jquery'
+  import navBar from '../navBar'
 
   export default {
     name: "PorfolioItem",
@@ -60,6 +47,9 @@
         text: '',
         assignment: []
       }
+    },
+    components: {
+      navBar
     },
     created() {
       const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
@@ -82,7 +72,6 @@
           this.assignment.push(data)
         })
       })
-
     }
   }
 </script>
@@ -143,7 +132,7 @@
   .loader h1 {
     line-height: 100vh;
   }
-  
+
   .html p{
     text-align: left;
   }
