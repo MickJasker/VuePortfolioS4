@@ -1,25 +1,41 @@
 <template>
   <div class="page">
-    <nav class = "elevation-10">
-      <ul id = "navL">
-        <li>Media Design</li>
+    <div class="loader" v-show="loader">
+      <h1>Loading content</h1>
+    </div>
+    <nav class="elevation-10">
+      <ul id="navL">
+        <li>
+          <router-link to="/Home">Media Design</router-link>
+        </li>
         <li>Digital Publishing</li>
       </ul>
-      <img src = "../../assets/logo.svg" alt = "">
-      <ul id = "navR">
+      <img src="../../assets/logo.svg" alt="">
+      <ul id="navR">
         <li>SCO</li>
         <li>UXU</li>
         <li>DEV</li>
         <li>PTM</li>
       </ul>
     </nav>
-    <section class = "landing" :style = "'background-image: url(' +this.headerImg+')'">
-      <h1>{{this.name}}</h1>
+    <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
+      <h1>{{this.name}} | sprint 0</h1>
     </section>
     <section class="content">
       <h1 data-aos="fade-up">{{this.name}}</h1>
       <p data-aos="fade-up">{{this.text}}</p>
+      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
+      <div class="assignment" v-for="item in assignment">
+        <h2 data-aos="fade-up">{{item.name}}</h2>
+        <div data-aos="fade-up" v-html="item.html" class="html"/>
+      </div>
+      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
+    <footer/>
+    <div class="footer">
+      <h6>Mick Jasker 2018</h6>
+      <router-link to="Login" id="footerLink">Admin login</router-link>
+    </div>
   </div>
 </template>
 
@@ -42,16 +58,30 @@
         name: '',
         headerImg: '',
         text: '',
-        color: 'rgba(247, 148, 32, 1)'
+        assignment: []
       }
     },
     created() {
-      firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id).get()
+      const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
+      docref.get()
         .then(doc => {
           this.name = doc.data().name
           this.headerImg = doc.data().headerImg
           this.text = doc.data().desc
+          this.loader = false
         })
+      docref.collection('items').get().then((snap) => {
+        snap.forEach(doc => {
+          let html = doc.data().html
+          html = $.parseHTML(html)
+          const data = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'html': html[0].innerHTML
+          }
+          this.assignment.push(data)
+        })
+      })
 
     }
   }
@@ -61,13 +91,14 @@
   .page {
     text-align: center;
   }
-  .landing
-  {
+
+  .landing {
     height: 80vh;
     width: 100vw;
     background-size: cover;
     background-position: bottom;
   }
+
   .landing h1 {
     text-align: right;
     line-height: 80vh;
@@ -78,11 +109,80 @@
 
   h1 {
     color: #0069AA;
+    font-size: 36px;
+  }
+
+  h2 {
+    color: #0069AA;
+    font-size: 24px;
   }
 
   .content {
-    text-align: left;
+    text-align: center;
     max-width: 800px;
     display: inline-block;
+  }
+
+  .content p {
+    text-align: left !important;
+  }
+
+  .line {
+    height: 250px;
+    margin: 100px;
+  }
+
+  .loader {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100000;
+    background-color: #fff;
+  }
+
+  .loader h1 {
+    line-height: 100vh;
+  }
+  
+  .html p{
+    text-align: left;
+  }
+
+  footer {
+    background-image: url("../../assets/footer.png");
+    background-size: cover;
+    height: 60vw;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  .footer {
+    z-index: 1000;
+    position: absolute;
+    width: 100vw;
+    background: #282828;
+    text-align: center;
+    color: #F5F5F5;
+    display: inherit;
+    padding: 10px;
+  }
+
+  .footer h6 {
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.4;
+  }
+
+  .footer a {
+    opacity: 0.4;
+    color: #F5F5F5;
+    transition: 0.2s ease-out;
+  }
+
+  .footer a:hover {
+    opacity: 1;
+    color: #F79520;
   }
 </style>
