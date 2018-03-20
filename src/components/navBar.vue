@@ -1,17 +1,12 @@
 <template>
   <nav class="elevation-10">
-    <ul id="navL">
+    <ul id="navL"/>
+    <img src="../assets/logo.svg" alt="">
+    <ul id="navR">
       <li>
         <router-link to="/Home">Media Design</router-link>
       </li>
-      <li>Digital Publishing</li>
-    </ul>
-    <img src="../assets/logo.svg" alt="">
-    <ul id="navR">
-      <li>SCO</li>
-      <li>UXU</li>
-      <li>DEV</li>
-      <li>PTM</li>
+      <li><router-link to="/Home">Digital Publishing</router-link></li>
     </ul>
   </nav>
 </template>
@@ -23,5 +18,11 @@
 </script>
 
 <style scoped>
+  a {
+    transition: 0.2s ease-out;
+  }
 
+  a:hover {
+    color: #F79520;
+  }
 </style>

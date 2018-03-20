@@ -44,6 +44,8 @@
     margin:           30px;
     width:            calc(100% - 60px);
     z-index:          10000;
+    opacity: 0.95;
+    -webkit-backdrop-filter: blur(300px);
   }
 
   nav ul li
