@@ -3,21 +3,7 @@
     <div class="loader" v-show="loader">
       <h1>Loading content</h1>
     </div>
-    <nav class="elevation-10">
-      <ul id="navL">
-        <li>
-          <router-link to="/Home">Media Design</router-link>
-        </li>
-        <li>Digital Publishing</li>
-      </ul>
-      <img src="../../assets/logo.svg" alt="">
-      <ul id="navR">
-        <li>SCO</li>
-        <li>UXU</li>
-        <li>DEV</li>
-        <li>PTM</li>
-      </ul>
-    </nav>
+   <nav-bar/>
     <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
       <h1>{{this.name}} | sprint 0</h1>
     </section>
@@ -27,7 +13,7 @@
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
       <div class="assignment" v-for="item in assignment">
         <h2 data-aos="fade-up">{{item.name}}</h2>
-        <p data-aos="fade-up">{{item.html}}</p>
+        <div data-aos="fade-up" v-html="item.html" class="html"/>
       </div>
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
@@ -43,6 +29,7 @@
   import firebase from 'firebase'
   import 'firebase/firestore'
   import $ from 'jquery'
+  import navBar from '../navBar'
 
   export default {
     name: "PorfolioItem",
@@ -61,6 +48,9 @@
         assignment: []
       }
     },
+    components: {
+      navBar
+    },
     created() {
       const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
       docref.get()
@@ -73,15 +63,15 @@
       docref.collection('items').get().then((snap) => {
         snap.forEach(doc => {
           let html = doc.data().html
+          html = $.parseHTML(html)
           const data = {
             'id': doc.id,
             'name': doc.data().name,
-            'html': html
+            'html': html[0].innerHTML
           }
           this.assignment.push(data)
         })
       })
-
     }
   }
 </script>
@@ -123,7 +113,7 @@
   }
 
   .content p {
-    text-align: left;
+    text-align: left !important;
   }
 
   .line {
@@ -141,6 +131,10 @@
 
   .loader h1 {
     line-height: 100vh;
+  }
+
+  .html {
+    text-align: left !important;
   }
 
   footer {
