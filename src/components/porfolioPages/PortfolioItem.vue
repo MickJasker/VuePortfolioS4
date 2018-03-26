@@ -18,7 +18,7 @@
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
     <footer/>
-    <div class="footer">
+    <div class="footerRow">
       <h6>Mick Jasker 2018</h6>
       <router-link to="Login" id="footerLink">Admin login</router-link>
     </div>
@@ -147,7 +147,7 @@
     z-index: 0;
   }
 
-  .footer {
+  .footerRow {
     z-index: 1000;
     position: absolute;
     width: 100vw;
@@ -158,19 +158,19 @@
     padding: 10px;
   }
 
-  .footer h6 {
+  .footerRow h6 {
     font-weight: 400;
     font-size: 14px;
     opacity: 0.4;
   }
 
-  .footer a {
+  .footerRow a {
     opacity: 0.4;
     color: #F5F5F5;
     transition: 0.2s ease-out;
   }
 
-  .footer a:hover {
+  .footerRow a:hover {
     opacity: 1;
     color: #F79520;
   }
