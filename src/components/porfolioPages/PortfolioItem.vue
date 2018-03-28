@@ -32,47 +32,47 @@
   import navBar from '../navBar'
 
   export default {
-    name: "PorfolioItem",
-    props: {
-      id: {
-        required: true,
-        type: String
-      }
-    },
-    data() {
-      return {
-        loader: true,
-        name: '',
-        headerImg: '',
-        text: '',
-        assignment: []
-      }
-    },
-    components: {
-      navBar
-    },
-    created() {
-      const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
-      docref.get()
-        .then(doc => {
-          this.name = doc.data().name
-          this.headerImg = doc.data().headerImg
-          this.text = doc.data().desc
-          this.loader = false
-        })
-      docref.collection('items').get().then((snap) => {
-        snap.forEach(doc => {
-          let html = doc.data().html
-          html = $.parseHTML(html)
-          const data = {
-            'id': doc.id,
-            'name': doc.data().name,
-            'html': html[0].innerHTML
-          }
-          this.assignment.push(data)
-        })
-      })
-    }
+  	name: 'PorfolioItem',
+  	props: {
+  		id: {
+  			required: true,
+  			type: String
+  		}
+  	},
+  	data () {
+  		return {
+  			loader: true,
+  			name: '',
+  			headerImg: '',
+  			text: '',
+  			assignment: []
+  		}
+  	},
+  	components: {
+  		navBar
+  	},
+  	created () {
+  		const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
+  		docref.get()
+  			.then(doc => {
+  				this.name = doc.data().name
+  				this.headerImg = doc.data().headerImg
+  				this.text = doc.data().desc
+  				this.loader = false
+  			})
+  		docref.collection('items').get().then((snap) => {
+  			snap.forEach(doc => {
+  				let html = doc.data().html
+  				html = $.parseHTML(html)
+  				const data = {
+  					'id': doc.id,
+  					'name': doc.data().name,
+  					'html': html[0].innerHTML
+  				}
+  				this.assignment.push(data)
+  			})
+  		})
+  	}
   }
 </script>
 
