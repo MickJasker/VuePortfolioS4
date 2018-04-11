@@ -8,12 +8,12 @@
 
 <script>
   export default {
-    name: 'App',
-    data() {
-      return {
-        fixed: false
-      }
-    }
+  	name: 'App',
+  	data () {
+  		return {
+  			fixed: false
+  		}
+  	}
   }
 </script>
 

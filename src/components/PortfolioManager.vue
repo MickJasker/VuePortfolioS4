@@ -65,69 +65,66 @@
   import 'firebase/firestore'
 
   export default {
-    components: {
-      ToolbarComp
-    },
-    data() {
-      return {
-        exclusive: 1,
-        cards: [],
-        tag: '',
-        loader: true,
-        courseSelectionData: [],
-        courseSelection: [
-          'Strategie en concepting',
-          'User experience design',
-          'Design en development',
-          'Overig'
-
-        ]
-      }
-    },
-    created: function () {
-     /* ClassicEditor
+  	components: {
+  		ToolbarComp
+  	},
+  	data () {
+  		return {
+  			exclusive: 1,
+  			cards: [],
+  			tag: '',
+  			loader: true,
+  			courseSelectionData: [],
+  			courseSelection: [
+  				'Strategie en concepting',
+  				'User experience design',
+  				'Design en development',
+  				'Overig'
+  			]
+  		}
+  	},
+  	created: function () {
+  		/* ClassicEditor
         .create(document.querySelector('#editor'))
         .then(editor => {
           console.log(editor)
         })
         .catch(error => {
           console.error(error)
-        })*/
+        }) */
 
-     ClassicEditor.create(document.querySelector('#editor')).then(editor => {
-       console.log(editor)
-     }).catch(error => {
-       console.log(error)
-     })
+  		ClassicEditor.create(document.querySelector('#editor')).then(editor => {
+  			console.log(editor)
+  		}).catch(error => {
+  			console.log(error)
+  		})
 
-      const dbRef = firebase.firestore().collection('portfolio')
-      dbRef.doc('SCO4/').collection('subjects').get().then(snap => {
-        snap.forEach(doc => {
-          const data = {
-            'id': doc.id,
-            'name': doc.data().name,
-            'text': doc.data().text,
-            'headerImg': doc.data().headerImg,
-            'tag': doc.data().tag,
-            'sprintCard': doc.data().sprint
-          }
-          this.cards.push(data)
-          this.loader = false
-        })
-      })
-    },
-    computed: {
-      binding() {
-        const binding = {}
+  		const dbRef = firebase.firestore().collection('portfolio')
+  		dbRef.doc('SCO4/').collection('subjects').get().then(snap => {
+  			snap.forEach(doc => {
+  				const data = {
+  					'id': doc.id,
+  					'name': doc.data().name,
+  					'text': doc.data().text,
+  					'headerImg': doc.data().headerImg,
+  					'tag': doc.data().tag,
+  					'sprintCard': doc.data().sprint
+  				}
+  				this.cards.push(data)
+  				this.loader = false
+  			})
+  		})
+  	},
+  	computed: {
+  		binding () {
+  			const binding = {}
 
-        if (this.$vuetify.breakpoint.mdAndDown) binding.column = true
+  			if (this.$vuetify.breakpoint.mdAndDown) binding.column = true
 
-        return binding
-      }
-    }
+  			return binding
+  		}
+  	}
   }
-
-
 </script>
 
 <style scoped>

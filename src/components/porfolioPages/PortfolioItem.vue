@@ -18,7 +18,7 @@
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
     <footer/>
-    <div class="footer">
+    <div class="footerRow">
       <h6>Mick Jasker 2018</h6>
       <router-link to="Login" id="footerLink">Admin login</router-link>
     </div>
@@ -32,47 +32,47 @@
   import navBar from '../navBar'
 
   export default {
-    name: "PorfolioItem",
-    props: {
-      id: {
-        required: true,
-        type: String
-      }
-    },
-    data() {
-      return {
-        loader: true,
-        name: '',
-        headerImg: '',
-        text: '',
-        assignment: []
-      }
-    },
-    components: {
-      navBar
-    },
-    created() {
-      const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
-      docref.get()
-        .then(doc => {
-          this.name = doc.data().name
-          this.headerImg = doc.data().headerImg
-          this.text = doc.data().desc
-          this.loader = false
-        })
-      docref.collection('items').get().then((snap) => {
-        snap.forEach(doc => {
-          let html = doc.data().html
-          html = $.parseHTML(html)
-          const data = {
-            'id': doc.id,
-            'name': doc.data().name,
-            'html': html[0].innerHTML
-          }
-          this.assignment.push(data)
-        })
-      })
-    }
+  	name: 'PorfolioItem',
+  	props: {
+  		id: {
+  			required: true,
+  			type: String
+  		}
+  	},
+  	data () {
+  		return {
+  			loader: true,
+  			name: '',
+  			headerImg: '',
+  			text: '',
+  			assignment: []
+  		}
+  	},
+  	components: {
+  		navBar
+  	},
+  	created () {
+  		const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
+  		docref.get()
+  			.then(doc => {
+  				this.name = doc.data().name
+  				this.headerImg = doc.data().headerImg
+  				this.text = doc.data().desc
+  				this.loader = false
+  			})
+  		docref.collection('items').get().then((snap) => {
+  			snap.forEach(doc => {
+  				let html = doc.data().html
+  				html = $.parseHTML(html)
+  				const data = {
+  					'id': doc.id,
+  					'name': doc.data().name,
+  					'html': html[0].innerHTML
+  				}
+  				this.assignment.push(data)
+  			})
+  		})
+  	}
   }
 </script>
 
@@ -147,7 +147,7 @@
     z-index: 0;
   }
 
-  .footer {
+  .footerRow {
     z-index: 1000;
     position: absolute;
     width: 100vw;
@@ -158,19 +158,19 @@
     padding: 10px;
   }
 
-  .footer h6 {
+  .footerRow h6 {
     font-weight: 400;
     font-size: 14px;
     opacity: 0.4;
   }
 
-  .footer a {
+  .footerRow a {
     opacity: 0.4;
     color: #F5F5F5;
     transition: 0.2s ease-out;
   }
 
-  .footer a:hover {
+  .footerRow a:hover {
     opacity: 1;
     color: #F79520;
   }

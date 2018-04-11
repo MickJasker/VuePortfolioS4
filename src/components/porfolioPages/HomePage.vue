@@ -60,7 +60,7 @@
       <h1 id = "commingSoon" data-aos = "zoom-out">Binnenkort meer</h1>
     </div>
     <footer/>
-    <div class = "footer">
+    <div class = "footerRow">
       <h6>Mick Jasker 2018</h6>
       <router-link to = "Login" id = "footerLink">Admin login</router-link>
     </div>
@@ -73,55 +73,52 @@
   import navBar from '../navBar'
 
   export default {
-    components: {
-      navBar
-    },
-    name: "home-page",
-    data() {
-      return {
-        coarseSprints: [],
-        tag: '',
-        sprintVal: null,
-        loader: true
-      }
-    },
-    methods: {
-      sprint(x) {
-        return this.sprintVal = x
-      },
-      sprintIf(x) {
-        if (this.sprintVal = x) {
-          return true
-        }
-        else if (this.sprintVal = null) {
-          return true
-        }
-      },
-      media(x) {
-        if (x == null) {
-          return 'auto'
-        }
-        else {
-          return '200px'
-        }
-      }
-    },
-    created() {
-      const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
-      dbRef.get().then(snap => {
-        snap.forEach(doc => {
-          const data = {
-            'id': doc.id,
-            'name': doc.data().name,
-            'desc': doc.data().desc,
-            'sprint': 'Sprint0'
-          }
-          this.coarseSprints.push(data)
-        })
-      })
-
-    },
-    computed: {}
+  	components: {
+  		navBar
+  	},
+  	name: 'home-page',
+  	data () {
+  		return {
+  			coarseSprints: [],
+  			tag: '',
+  			sprintVal: null,
+  			loader: true
+  		}
+  	},
+  	methods: {
+  		sprint (x) {
+  			return this.sprintVal = x
+  		},
+  		sprintIf (x) {
+  			if (this.sprintVal = x) {
+  				return true
+  			} else if (this.sprintVal = null) {
+  				return true
+  			}
+  		},
+  		media (x) {
+  			if (x == null) {
+  				return 'auto'
+  			} else {
+  				return '200px'
+  			}
+  		}
+  	},
+  	created () {
+  		const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
+  		dbRef.get().then(snap => {
+  			snap.forEach(doc => {
+  				const data = {
+  					'id': doc.id,
+  					'name': doc.data().name,
+  					'desc': doc.data().desc,
+  					'sprint': 'Sprint0'
+  				}
+  				this.coarseSprints.push(data)
+  			})
+  		})
+  	},
+  	computed: {}
 
   }
 </script>
@@ -260,7 +257,7 @@
     color:       #0069AA;
   }
 
-  .footer
+  .footerRow
   {
     z-index:    1000;
     position:   absolute;
@@ -272,21 +269,21 @@
     padding:    10px;
   }
 
-  .footer h6
+  .footerRow h6
   {
     font-weight: 400;
     font-size:   14px;
     opacity:     0.4;
   }
 
-  .footer a
+  .footerRow a
   {
     opacity:    0.4;
     color:      #F5F5F5;
     transition: 0.2s ease-out;
   }
 
-  .footer a:hover
+  .footerRow a:hover
   {
     opacity: 1;
     color:   #F79520;

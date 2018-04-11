@@ -10,12 +10,12 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 let config = {
-  apiKey: "AIzaSyDHcC1PXjoEkktDNfOlk0Ap4--CFdU_ib4",
-  authDomain: "portfolio-af2cb.firebaseapp.com",
-  databaseURL: "https://portfolio-af2cb.firebaseio.com",
-  projectId: "portfolio-af2cb",
-  storageBucket: "portfolio-af2cb.appspot.com",
-  messagingSenderId: "661253050916"
+	apiKey: 'AIzaSyDHcC1PXjoEkktDNfOlk0Ap4--CFdU_ib4',
+	authDomain: 'portfolio-af2cb.firebaseapp.com',
+	databaseURL: 'https://portfolio-af2cb.firebaseio.com',
+	projectId: 'portfolio-af2cb',
+	storageBucket: 'portfolio-af2cb.appspot.com',
+	messagingSenderId: '661253050916'
 }
 
 AOS.init()
@@ -23,19 +23,19 @@ AOS.init()
 firebase.initializeApp(config)
 
 Vue.use(Vuetify, {
-  theme: {
-    primary: '#0068a9',
-    secondary: '#f79420'
-  }
+	theme: {
+		primary: '#0068a9',
+		secondary: '#f79420'
+	}
 })
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>',
-  render: h => h(App)
+	el: '#app',
+	router,
+	components: { App },
+	template: '<App/>',
+	render: h => h(App)
 })

@@ -1,6 +1,6 @@
 # s4
 
-> A Vue.js project
+> Current Release: 1.2.0
 
 ## Build Setup
 

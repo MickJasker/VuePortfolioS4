@@ -1,7 +1,7 @@
 <template>
   <div class = "landingPage">
     <v-content class = "data">
-      <img src = "../assets/logo.svg" alt = "LOGO" class = "logo">
+      <lottie :options="defaultOptions" :height="112" v-on:animCreated="logoAnim"/>
       <h2>Het Buro</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores aspernatur atque dicta distinctio
          dolorem exercitationem explicabo facere magni molestiae nobis omnis, perspiciatis, quibusdam quis quod rem
@@ -21,8 +21,25 @@
 </template>
 
 <script>
+  import Lottie from './lottie'
+  import * as animationData from '../assets/logoAnim'
   export default {
-    name: "landing-page"
+  	name: 'landing-page',
+    components: {
+  	  'lottie': Lottie
+    },
+    data () {
+  	  return {
+        defaultOptions: {animationData: animationData},
+        animationSpeed: 1,
+        loop: false
+      }
+    },
+    methods: {
+  	  logoAnim (anim) {
+  	    this.anim = anim
+      }
+    }
   }
 </script>
 
@@ -50,6 +67,7 @@
   .logo
   {
     max-width: 600px;
+    height: 112px !important;
   }
 
   button
