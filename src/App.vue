@@ -18,8 +18,6 @@
 </script>
 
 <style>
-  @import "assets/style.css";
-
   body
   {
     font-family:      'Montserrat', 'Roboto', sans-serif !important;
