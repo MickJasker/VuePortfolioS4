@@ -8,7 +8,6 @@ import PortfolioItem from '../components/porfolioPages/PortfolioItem'
 import PorfolioAdmin from '../components/PortfolioManager'
 import firebase from 'firebase'
 import Landing from '../components/landingPage'
-import error from '../components/404'
 
 Vue.use(Router)
 
@@ -17,10 +16,6 @@ let router = new Router({
 		{
 			path: '*',
 			redirect: '/'
-		},
-		{
-			path: '/ERROR:404',
-			name: '404
 		},
 		{
 			path: '/',
