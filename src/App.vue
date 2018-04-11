@@ -8,16 +8,18 @@
 
 <script>
   export default {
-    name: 'App',
-    data() {
-      return {
-        fixed: false
-      }
-    }
+  	name: 'App',
+  	data () {
+  		return {
+  			fixed: false
+  		}
+  	}
   }
 </script>
 
 <style>
+  @import "assets/style.css";
+
   body
   {
     font-family:      'Montserrat', 'Roboto', sans-serif !important;
