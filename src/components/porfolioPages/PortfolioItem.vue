@@ -174,4 +174,9 @@
     opacity: 1;
     color: #F79520;
   }
+
+  .html img {
+    max-width: 800px !important;
+    border-radius: 15px;
+  }
 </style>
