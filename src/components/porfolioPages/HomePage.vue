@@ -73,55 +73,52 @@
   import navBar from '../navBar'
 
   export default {
-    components: {
-      navBar
-    },
-    name: "home-page",
-    data() {
-      return {
-        coarseSprints: [],
-        tag: '',
-        sprintVal: null,
-        loader: true
-      }
-    },
-    methods: {
-      sprint(x) {
-        return this.sprintVal = x
-      },
-      sprintIf(x) {
-        if (this.sprintVal = x) {
-          return true
-        }
-        else if (this.sprintVal = null) {
-          return true
-        }
-      },
-      media(x) {
-        if (x == null) {
-          return 'auto'
-        }
-        else {
-          return '200px'
-        }
-      }
-    },
-    created() {
-      const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
-      dbRef.get().then(snap => {
-        snap.forEach(doc => {
-          const data = {
-            'id': doc.id,
-            'name': doc.data().name,
-            'desc': doc.data().desc,
-            'sprint': 'Sprint0'
-          }
-          this.coarseSprints.push(data)
-        })
-      })
-
-    },
-    computed: {}
+  	components: {
+  		navBar
+  	},
+  	name: 'home-page',
+  	data () {
+  		return {
+  			coarseSprints: [],
+  			tag: '',
+  			sprintVal: null,
+  			loader: true
+  		}
+  	},
+  	methods: {
+  		sprint (x) {
+  			return this.sprintVal = x
+  		},
+  		sprintIf (x) {
+  			if (this.sprintVal = x) {
+  				return true
+  			} else if (this.sprintVal = null) {
+  				return true
+  			}
+  		},
+  		media (x) {
+  			if (x == null) {
+  				return 'auto'
+  			} else {
+  				return '200px'
+  			}
+  		}
+  	},
+  	created () {
+  		const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
+  		dbRef.get().then(snap => {
+  			snap.forEach(doc => {
+  				const data = {
+  					'id': doc.id,
+  					'name': doc.data().name,
+  					'desc': doc.data().desc,
+  					'sprint': 'Sprint0'
+  				}
+  				this.coarseSprints.push(data)
+  			})
+  		})
+  	},
+  	computed: {}
 
   }
 </script>

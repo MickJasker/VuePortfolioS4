@@ -7,6 +7,15 @@ module.exports = merge(prodEnv, {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
+      {
         test: /\.styl$/,
         loader: ['style-loader', 'css-loader', 'stylus-loader']
       }
