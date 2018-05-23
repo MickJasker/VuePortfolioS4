@@ -9,17 +9,10 @@
             <v-card>
               <v-card-title class="title">Nieuw artikel</v-card-title>
               <v-form>
-                <v-text-field label="Titel"/>
-                <v-select
-                  label="Selecteren"
-                  multiple
-                  chips
-                  v-bind:items="courseSelection"
-                  v-model="courseSelectionData"
-                  hint="Selecteer één of meerdere vakken"
-                  persistent-hint
-                />
-                <v-text-field multi-line label="Beschrijving"/>
+                <v-text-field label="Titel" />
+                <v-select label="Selecteren" multiple chips v-bind:items="courseSelection" v-model="courseSelectionData" hint="Selecteer één of meerdere vakken"
+                  persistent-hint />
+                <v-text-field multi-line label="Beschrijving" />
                 <textarea id="editor" cols="30" rows="10"></textarea>
               </v-form>
               <v-card-actions>
@@ -32,7 +25,6 @@
           </v-flex>
         </v-layout>
         <v-layout row wrap>
-
           <v-flex v-for="card in cards" :key="card.id">
             <v-card>
               <v-card-title class="title">{{card.name}}</v-card-title>
@@ -55,8 +47,6 @@
       </v-container>
     </v-content>
   </div>
-
-
 </template>
 <script>
   import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
@@ -65,26 +55,26 @@
   import 'firebase/firestore'
 
   export default {
-  	components: {
-  		ToolbarComp
-  	},
-  	data () {
-  		return {
-  			exclusive: 1,
-  			cards: [],
-  			tag: '',
-  			loader: true,
-  			courseSelectionData: [],
-  			courseSelection: [
-  				'Strategie en concepting',
-  				'User experience design',
-  				'Design en development',
-  				'Overig'
-  			]
-  		}
-  	},
-  	created: function () {
-  		/* ClassicEditor
+    components: {
+      ToolbarComp
+    },
+    data() {
+      return {
+        exclusive: 1,
+        cards: [],
+        tag: '',
+        loader: true,
+        courseSelectionData: [],
+        courseSelection: [
+          'Strategie en concepting',
+          'User experience design',
+          'Design en development',
+          'Overig'
+        ]
+      }
+    },
+    created: function () {
+      /* ClassicEditor
         .create(document.querySelector('#editor'))
         .then(editor => {
           console.log(editor)
@@ -93,42 +83,44 @@
           console.error(error)
         }) */
 
-  		ClassicEditor.create(document.querySelector('#editor')).then(editor => {
-  			console.log(editor)
-  		}).catch(error => {
-  			console.log(error)
-  		})
+      ClassicEditor.create(document.querySelector('#editor')).then(editor => {
+        console.log(editor)
+      }).catch(error => {
+        console.log(error)
+      })
 
-  		const dbRef = firebase.firestore().collection('portfolio')
-  		dbRef.doc('SCO4/').collection('subjects').get().then(snap => {
-  			snap.forEach(doc => {
-  				const data = {
-  					'id': doc.id,
-  					'name': doc.data().name,
-  					'text': doc.data().text,
-  					'headerImg': doc.data().headerImg,
-  					'tag': doc.data().tag,
-  					'sprintCard': doc.data().sprint
-  				}
-  				this.cards.push(data)
-  				this.loader = false
-  			})
-  		})
-  	},
-  	computed: {
-  		binding () {
-  			const binding = {}
+      const dbRef = firebase.firestore().collection('portfolio')
+      dbRef.doc('SCO4/').collection('subjects').get().then(snap => {
+        snap.forEach(doc => {
+          const data = {
+            'id': doc.id,
+            'name': doc.data().name,
+            'text': doc.data().text,
+            'headerImg': doc.data().headerImg,
+            'tag': doc.data().tag,
+            'sprintCard': doc.data().sprint
+          }
+          this.cards.push(data)
+          this.loader = false
+        })
+      })
+    },
+    computed: {
+      binding() {
+        const binding = {}
 
-  			if (this.$vuetify.breakpoint.mdAndDown) binding.column = true
+        if (this.$vuetify.breakpoint.mdAndDown) binding.column = true
 
-  			return binding
-  		}
-  	}
+        return binding
+      }
+    }
   }
+
 </script>
 
 <style scoped>
   form {
     padding: 10px;
   }
+
 </style>

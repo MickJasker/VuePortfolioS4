@@ -1,40 +1,33 @@
 <template>
-    <v-container fluid class="login">
-      <v-layout column align-center>
-        <h1 class = "display-1">Administratie login</h1>
-        <h3 class = "subheader">Deze omgeving is alleen bedoeld voor administrators, als u terug wilt naar de homepagina
-                                kunt u hier onder drukken.</h3>
-        <router-link to = "/">
-          <v-btn color = "secondary" flat><v-icon>arrow_back</v-icon> Take me back!</v-btn>
-        </router-link>
-        <v-form lazy-validation>
-          <v-text-field label = "Mail" type = "email" v-model = "email"
-                        required/>
-          <v-text-field label = "Wachtwoord" type = "password" v-model = "pass"
-                        required/>
-          <v-btn dark class = "primary" @click = "signIn">
-            Inloggen
+  <v-container fluid class="login">
+    <v-layout column align-center>
+      <h1 class="display-1">Administratie login</h1>
+      <h3 class="subheader">Deze omgeving is alleen bedoeld voor administrators, als u terug wilt naar de homepagina kunt u hier onder drukken.</h3>
+      <router-link to="/">
+        <v-btn color="secondary" flat>
+          <v-icon>arrow_back</v-icon> Take me back!</v-btn>
+      </router-link>
+      <v-form lazy-validation>
+        <v-text-field label="Mail" type="email" v-model="email" required/>
+        <v-text-field label="Wachtwoord" type="password" v-model="pass" required/>
+        <v-btn dark class="primary" @click="signIn">
+          Inloggen
+        </v-btn>
+        <router-link to="/forgetPassword">
+          <v-btn flat color="grey">
+            ik ben mijn wachtwoord vergeten
           </v-btn>
-          <router-link to="/forgetPassword">
-            <v-btn flat color="grey">
-              ik ben mijn wachtwoord vergeten
-            </v-btn>
-          </router-link>
-          <h3 class = "red--text subheader">{{errorMsg}}</h3>
+        </router-link>
+        <h3 class="red--text subheader">{{errorMsg}}</h3>
 
-        </v-form>
-      </v-layout>
-      <v-snackbar
-        :timeout = "3000"
-        color = "error"
-        v-model = "snackbar"
-        multi-line=""
-      >
-        {{ text }}
-        <v-btn dark flat @click.native = "snackbar = false">Close</v-btn>
-      </v-snackbar>
+      </v-form>
+    </v-layout>
+    <v-snackbar :timeout="3000" color="error" v-model="snackbar" multi-line="">
+      {{ text }}
+      <v-btn dark flat @click.native="snackbar = false">Close</v-btn>
+    </v-snackbar>
 
-    </v-container>
+  </v-container>
 </template>
 
 <script>
@@ -66,15 +59,17 @@
       }
     }
   }
+
 </script>
 
 <style scoped>
   .login {
     padding-top: calc(50vh - (400px / 2) - 45px);
   }
-  form
-  {
+
+  form {
     width: 80vw;
     max-width: 450px;
   }
+
 </style>
