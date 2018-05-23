@@ -5,15 +5,18 @@
     </div>
    <nav-bar/>
     <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
-      <h1>{{this.name}} | sprint 0</h1>
+      <h1>{{this.name}}</h1>
     </section>
     <section class="content">
       <h1 data-aos="fade-up">{{this.name}}</h1>
       <p data-aos="fade-up">{{this.text}}</p>
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
-      <div class="assignment" v-for="item in assignment">
-        <h2 data-aos="fade-up">{{item.name}}</h2>
+      <div class="assignment" v-for="item in assignment" :key="item.id">
+        <h1 data-aos="fade-up">{{item.name}}</h1>
         <div data-aos="fade-up" v-html="item.html" class="html"/>
+        <div data-aos="fade-up" class="tag">
+          <h5>Sprint {{item.sprint}}</h5>
+        </div>
       </div>
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
@@ -58,18 +61,19 @@
   				this.name = doc.data().name
   				this.headerImg = doc.data().headerImg
   				this.text = doc.data().desc
-  				this.loader = false
   			})
-  		docref.collection('items').get().then((snap) => {
+  		docref.collection('items').orderBy("sprint").get().then((snap) => {
   			snap.forEach(doc => {
   				let html = doc.data().html
   				html = $.parseHTML(html)
   				const data = {
   					'id': doc.id,
   					'name': doc.data().name,
-  					'html': html[0].innerHTML
+  					'html': html[0].innerHTML,
+            'sprint': doc.data().sprint,
   				}
-  				this.assignment.push(data)
+          this.assignment.push(data)
+          this.loader = false
   			})
   		})
   	}
@@ -137,11 +141,26 @@
     text-align: left !important;
   }
 
+  .assignment {
+    margin-top: 100px;
+  }
+
+  .html p img {
+    border-radius: 20px;
+  }
+
+  .tag {
+    margin-top: 10px;
+    border: #b1b0b0 solid 2px;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100px;
+    color: #b1b0b0;
+  }
+
   footer {
     background-image: url("../../assets/footer.png");
     background-size: cover;
-    height: 60vw;
-    position: absolute;
     bottom: 0;
     width: 100vw;
     z-index: 0;
