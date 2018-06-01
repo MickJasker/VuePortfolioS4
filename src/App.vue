@@ -22,6 +22,7 @@
   {
     font-family:      'Montserrat', 'Roboto', sans-serif !important;
     background-color: #282828;
+    margin: 0;
   }
 
   .primary
@@ -60,6 +61,7 @@
   {
     padding:   15px;
     min-width: 370px;
+    margin: 0;
   }
 
   nav img
