@@ -98,6 +98,7 @@
     padding-right: 100px;
     font-size: 50px;
     color: #F5F5F5;
+    margin: 0;
   }
 
   h1 {
@@ -158,6 +159,10 @@
     color: #b1b0b0;
   }
 
+  .tag h5 {
+    margin: 0;
+  }
+
   footer {
     background-image: url("../../assets/footer.png");
     background-size: cover;
@@ -197,5 +202,12 @@
   .html img {
     max-width: 800px !important;
     border-radius: 15px;
+  }
+
+  .html ol {
+    padding: 10px !important;
+  }
+  .html ol li {
+    margin: 10px !important;
   }
 </style>
