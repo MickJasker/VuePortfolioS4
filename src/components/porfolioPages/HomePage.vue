@@ -37,7 +37,7 @@
       <div class="vak" data-aos="fade-up" v-for="data in courseSprints" :key="data.id">
         <h2>{{data.name}}</h2>
         <p>{{data.desc}}</p>
-        <router-link :to="{name: 'PortfolioItem', params: {sprint: data.sprint, id: data.id}}">
+        <router-link :to="{name: 'PortfolioItem', params: {id: data.id}}">
           <button class="elevation-5">
             Bekijk al het werk over {{data.name}}
           </button>
