@@ -8,6 +8,8 @@ import './assets/main.styl'
 import firebase from 'firebase'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import './assets/prism.js'
+import './assets/prism.css'
 
 let config = {
 	apiKey: 'AIzaSyDHcC1PXjoEkktDNfOlk0Ap4--CFdU_ib4',

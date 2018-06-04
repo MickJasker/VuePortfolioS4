@@ -34,7 +34,7 @@
         crossmediaal ingezet en dus aangevuld met andere middelen zoals video content, print, social media, events, kunst,
         producten etc.</p>
       <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
-      <div class="vak" data-aos="fade-up" v-for="data in coarseSprints" :key="data.id">
+      <div class="vak" data-aos="fade-up" v-for="data in courseSprints" :key="data.id">
         <h2>{{data.name}}</h2>
         <p>{{data.desc}}</p>
         <router-link :to="{name: 'PortfolioItem', params: {sprint: data.sprint, id: data.id}}">
@@ -65,7 +65,12 @@
     name: 'home-page',
     data() {
       return {
-        coarseSprints: [],
+        courseSprints: [
+          {
+            id: 1,
+            name: 'Laden...'
+          }
+        ],
         tag: '',
         sprintVal: null,
         loader: true
@@ -92,7 +97,8 @@
     },
     created() {
       const dbRef = firebase.firestore().collection('portfolio/semesters/s4/sprints/sprint0')
-      dbRef.get().then(snap => {
+      dbRef.onSnapshot(snap => {
+        this.courseSprints = []
         snap.forEach(doc => {
           const data = {
             'id': doc.id,
@@ -100,7 +106,7 @@
             'desc': doc.data().desc,
             'sprint': 'Sprint0'
           }
-          this.coarseSprints.push(data)
+          this.courseSprints.push(data)
         })
       })
     },
