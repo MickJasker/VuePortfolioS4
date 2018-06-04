@@ -56,14 +56,14 @@
   	},
   	created () {
   		const docref = firebase.firestore().collection('portfolio').doc('semesters').collection('s4').doc('sprints').collection('sprint0').doc(this.id)
-  		docref.get()
-  			.then(doc => {
-  				this.name = doc.data().name
+  		docref.onSnapshot(doc => {
+        	this.name = doc.data().name
   				this.headerImg = doc.data().headerImg
   				this.text = doc.data().desc
-  			})
-  		docref.collection('items').orderBy("sprint").get().then((snap) => {
-  			snap.forEach(doc => {
+        })
+  		docref.collection('items').orderBy("sprint").onSnapshot(snap => {
+        this.assignment = []
+        snap.forEach(doc => {
   				let html = doc.data().html
   				html = $.parseHTML(html)
   				const data = {
@@ -74,7 +74,7 @@
   				}
           this.assignment.push(data)
           this.loader = false
-  			})
+        })
   		})
   	}
   }
@@ -197,5 +197,9 @@
   .html img {
     max-width: 800px !important;
     border-radius: 15px;
+  }
+
+  pre code {
+    text-align: left;
   }
 </style>
