@@ -1,6 +1,8 @@
-# s4
+# Semester 4
 
-> Current Release: 1.2.0
+> Current Release: 1.3.3
+
+Dit semester heb ik mijn focus gelegd op het verder ontwikkelen van mijn front-end skills. Ik ben begonnen met vue.js, een javascript framework. De reden dat ik hiervoor heb gekozen is omdat kennis van frameworks een veelvereist is in vacatures.
 
 ## Build Setup
 
