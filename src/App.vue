@@ -35,7 +35,9 @@
   {
     text-decoration: none;
   }
-
+  h6 {
+    margin: 5px;
+  }
   nav
   {
     background-color: #F5F5F5;

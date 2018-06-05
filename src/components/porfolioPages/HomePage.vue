@@ -4,10 +4,11 @@
     <section class="landingContent">
       <h1>Het Buro</h1>
       <h2>Semester 4</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores inventore numquam tempore vel vero. Amet debitis
-        delectus doloribus ex odit perspiciatis porro quaerat quisquam voluptatibus voluptatum. Et maxime temporibus voluptates!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor facilis ipsum nesciunt possimus quo sint voluptatum.
-        Animi at cum eligendi eveniet, iusto libero nobis reprehenderit saepe temporibus vel. Nobis, sunt!</p>
+      <p>
+        Dit semester heb ik mijn focus gelegd op het verder ontwikkelen van mijn front-end skills. Ik ben begonnen met vue.js, 
+        een javascript framework. De reden dat ik hiervoor heb gekozen is omdat kennis van frameworks een veelvereist is in 
+        vacatures.
+      </p>
     </section>
 
     <div class="content">
