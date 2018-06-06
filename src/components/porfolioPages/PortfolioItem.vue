@@ -1,8 +1,11 @@
 <template>
   <div class="page">
-    <div class="loader" v-show="loader">
-      <h1>Loading content</h1>
+    <transition name="fade">
+      <div class="loader" v-show="loader">
+        <v-progress-circular indeterminate color="primary"></v-progress-circular>
+      <h1>De content wordt geladen. Even geduld aub...</h1>
     </div>
+    </transition>
    <nav-bar/>
     <section class="landing" :style="'background-image: url(' +this.headerImg+')'">
       <h1>{{this.name}}</h1>
@@ -132,10 +135,10 @@
     position: fixed;
     z-index: 100000;
     background-color: #fff;
-  }
-
-  .loader h1 {
-    line-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .html {

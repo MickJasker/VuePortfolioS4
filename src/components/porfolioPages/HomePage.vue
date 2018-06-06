@@ -6,8 +6,7 @@
       <h2>Semester 4</h2>
       <p>
         Dit semester heb ik mijn focus gelegd op het verder ontwikkelen van mijn front-end skills. Ik ben begonnen met vue.js, 
-        een javascript framework. De reden dat ik hiervoor heb gekozen is omdat kennis van frameworks een veelvereist is in 
-        vacatures.
+        een javascript framework. De reden dat ik hiervoor heb gekozen is omdat kennis van frameworks veel vereist is in vacatures.
       </p>
     </section>
 
