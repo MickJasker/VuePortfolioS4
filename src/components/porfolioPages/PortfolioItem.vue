@@ -20,8 +20,8 @@
         <div data-aos="fade-up" class="tag">
           <h5>Sprint {{item.sprint}}</h5>
         </div>
+        <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
       </div>
-      <img data-aos="zoom-out" src="../../assets/line.svg" alt="line" class="line">
     </section>
     <footer/>
     <div class="footerRow">
@@ -145,9 +145,6 @@
     text-align: left !important;
   }
 
-  .assignment {
-    margin-top: 100px;
-  }
 
   .html p img {
     border-radius: 20px;
@@ -209,6 +206,7 @@
 
   .html ol {
     padding: 10px !important;
+    margin: 10px;
   }
   .html ol li {
     margin: 10px !important;
