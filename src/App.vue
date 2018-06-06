@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-slide-y-transition mode = "out-in">
+    <transition name="component-fade" mode="out-in">
       <router-view/>
-    </v-slide-y-transition>
+    </transition>
   </v-app>
 </template>
 
@@ -74,16 +74,44 @@
     text-align: center;
   }
 
-  #navL
-  {
+  #navL {
     text-align: left;
-    float:      left;
+    float: left;
   }
 
-  #navR
-  {
+  #navR {
     text-align: right;
-    float:      right;
+    float: right;
   }
+
+  .component-fade-enter-active,
+  .component-fade-leave-active {
+    transition: opacity .3s ease;
+    transition-delay: .2s;
+  }
+
+  .component-fade-enter,
+  .component-fade-leave-to
+  /* .component-fade-leave-active below version 2.1.8 */
+
+    {
+    opacity: 0;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .3s ease-out;
+    transition-delay: 1.5s;
+  }
+
+  .fade-enter,
+  .fade-leave-to
+  /* .component-fade-leave-active below version 2.1.8 */
+
+    {
+    opacity: 0;
+  }
+
+
 
 </style>
